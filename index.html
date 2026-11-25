@@ -200,30 +200,39 @@
   }
   .group-title span{font-size:12px;color:var(--muted);font-weight:300;letter-spacing:.04em;}
   .item{
-    display:flex;align-items:baseline;gap:18px;
-    padding:22px 2px;border-bottom:1px solid var(--line);
+    display:flex;align-items:flex-start;gap:20px;
+    padding:24px 2px;border-bottom:1px solid var(--line);
     transition:padding-left .3s ease;
   }
   .item:hover{padding-left:8px;}
-  .item .name{flex:none;font-size:16.5px;font-weight:500;letter-spacing:.04em;}
-  .item .tag{
-    font-size:10.5px;letter-spacing:.14em;color:var(--accent);
-    border:1px solid rgba(14,124,134,.35);padding:2px 7px;border-radius:2px;flex:none;
-        align-self:center;transform:translateY(-1px);
-  }
+  .item-main{flex:1;min-width:0;}
+  .item .name{font-size:16.5px;font-weight:500;letter-spacing:.04em;}
   .item .desc{
-    flex:1;min-width:0;font-size:13px;color:var(--muted);font-weight:300;letter-spacing:.02em;
-    overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+    display:block;margin-top:7px;font-size:12.5px;color:var(--muted);
+    font-weight:300;line-height:1.75;letter-spacing:.02em;
   }
-  .item .dots{flex:0 0 auto;width:clamp(20px,14vw,220px);border-bottom:1px dotted #CFCCC4;transform:translateY(-5px);}
-  .item .price{flex:none;font-size:19px;font-weight:500;letter-spacing:.02em;font-variant-numeric:tabular-nums;}
+  .tiers{
+    flex:none;display:flex;flex-direction:column;gap:4px;
+    text-align:right;font-size:15px;font-weight:500;
+    font-variant-numeric:tabular-nums;letter-spacing:.02em;white-space:nowrap;
+  }
+  .tiers i{
+    font-style:normal;font-size:11px;font-weight:400;color:var(--muted);
+    margin-right:10px;letter-spacing:.04em;
+  }
+  .item .price{
+    flex:none;font-size:19px;font-weight:500;letter-spacing:.02em;
+    font-variant-numeric:tabular-nums;white-space:nowrap;
+  }
   .item .price i{font-style:normal;font-size:12px;font-weight:400;color:var(--muted);margin-right:2px;}
+  .item .price .from{font-size:11px;font-weight:400;color:var(--muted);margin-left:3px;}
+  .item .price.quote{font-size:14px;font-weight:400;color:var(--muted);letter-spacing:.06em;}
   @media (max-width:720px){
-    .item{flex-wrap:wrap;gap:6px 12px;padding:18px 2px;}
+    .item{gap:14px;padding:20px 2px;}
     .item .name{font-size:15.5px;}
-    .item .desc{flex-basis:100%;white-space:normal;order:3;}
-    .item .dots{display:none;}
-    .item .price{margin-left:auto;font-size:17px;}
+    .tiers{font-size:14px;}
+    .tiers i{margin-right:8px;}
+    .item .price{font-size:17px;}
   }
 
   .notice{
@@ -260,7 +269,7 @@
   <nav class="nav">
     <a class="home-link" href="#home">首页</a>
     <a href="#menu">项目与价格</a>
-    <a class="tel" href="tel:13621332999">136 2133 2999</a>
+    <a class="tel" href="tel:18710058671">187 1005 8671</a>
   </nav>
 </header>
 
@@ -276,7 +285,7 @@
         <p class="lead">高压冲净、缝隙刷洗、漆面养护，一台车一套流程。价格写在明面上，来了就洗，不推销、不加项。</p>
         <div class="btns">
           <a class="btn btn-light" href="#menu">查看项目与价格 <span class="arw">→</span></a>
-          <a class="btn btn-ghost" href="tel:13621332999">电话预约</a>
+          <a class="btn btn-ghost" href="tel:18710058671">电话预约</a>
         </div>
       </div>
     </div>
@@ -289,7 +298,7 @@
         </div>
         <div class="info-cell">
           <div class="k">电话</div>
-          <a class="v" href="tel:13621332999">136 2133 2999<small>微信同号，可直接预约</small></a>
+          <a class="v" href="tel:18710058671">187 1005 8671<small>微信同号，可直接预约</small></a>
         </div>
         <div class="info-cell">
           <div class="k">营业时间</div>
@@ -323,7 +332,7 @@
       <div class="cta-box">
         <div>
           <h3>先看价目，再决定洗哪一档</h3>
-          <p>基础洗车 38 元起，深度清洁与漆面养护全部明码标价。</p>
+          <p>精洗 180 元起，内饰、机舱、漆面养护全部明码标价。</p>
         </div>
         <a class="btn btn-light" href="#menu">进入价目表 <span class="arw">→</span></a>
       </div>
@@ -339,7 +348,7 @@
       </div>
       <div class="foot-meta">
         <span>北京市顺义区乾安路 13 号 鲁能美丽汇购物中心</span>
-        <a href="tel:13621332999">136 2133 2999</a>
+        <a href="tel:18710058671">187 1005 8671</a>
         <span>09:00 — 19:30</span>
       </div>
       <div class="copy">© 2026 无野洗车行 WUYE CAR WASH</div>
@@ -352,104 +361,142 @@
       <div class="sheet-head">
         <div>
           <h1>项目与价格</h1>
-          <p>门店常规价目 · 2026 年 11 月版 · 人民币</p>
+          <p>门店价目 · 2026 年 11 月版 · 人民币</p>
         </div>
         <a class="back" href="#home">← 返回首页</a>
       </div>
 
       <div class="group">
-        <div class="group-title"><h2>基础洗车</h2><span>到店即洗，约 30 分钟</span></div>
+        <div class="group-title"><h2>美容项目</h2><span>洗车 · 内饰 · 机舱</span></div>
+
         <div class="item">
-          <span class="name">标准洗车</span>
-          <span class="desc">高压冲水 · 泡沫洗车 · 轮毂清洁 · 吹水擦干</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>38</span>
+          <div class="item-main">
+            <span class="name">精洗</span>
+            <span class="desc">内饰吹尘 · 龙卷风清洗内饰整体 · 内部玻璃擦拭 · 吸尘 · 外观清洗 · 轮毂清洗 · 轮胎蜡</span>
+          </div>
+          <div class="tiers">
+            <span><i>轿车</i>¥180</span>
+            <span><i>SUV</i>¥230</span>
+            <span><i>商务 / 皮卡</i>¥280</span>
+          </div>
         </div>
+
         <div class="item">
-          <span class="name">精致洗车</span>
-          <span class="tag">推荐</span>
-          <span class="desc">标准洗车 + 缝隙刷洗 · 轮胎上光 · 内饰吸尘</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>68</span>
+          <div class="item-main">
+            <span class="name">内饰深度清洗及真皮保养</span>
+            <span class="desc">还原真皮清洁度与亮度</span>
+          </div>
+          <div class="tiers">
+            <span><i>轿车</i>¥480</span>
+            <span><i>SUV</i>¥580</span>
+            <span><i>商务 / 皮卡</i>¥680</span>
+          </div>
         </div>
+
         <div class="item">
-          <span class="name">车型加价</span>
-          <span class="desc">SUV / 七座 / 皮卡，按车型补差</span>
-          <span class="dots"></span>
-          <span class="price"><i>+</i>10</span>
+          <div class="item-main">
+            <span class="name">发动机舱精洗及养护</span>
+            <span class="desc">防止管路老化 · 提升发动机工况环境</span>
+          </div>
+          <div class="price"><i>¥</i>260</div>
+        </div>
+
+        <div class="item">
+          <div class="item-main">
+            <span class="name">摩托车普洗 / 精洗</span>
+            <span class="desc">精洗包含链条保养</span>
+          </div>
+          <div class="tiers">
+            <span><i>普洗</i>¥48</span>
+            <span><i>精洗</i>¥98</span>
+          </div>
         </div>
       </div>
 
       <div class="group">
-        <div class="group-title"><h2>深度清洁</h2><span>需预约，约 1.5 小时</span></div>
-        <div class="item">
-          <span class="name">内饰深度清洁</span>
-          <span class="desc">座椅 · 地毯 · 顶棚 · 出风口，逐件处理</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>198</span>
-        </div>
-        <div class="item">
-          <span class="name">发动机舱清洁</span>
-          <span class="desc">免水洗药剂 · 油污分解 · 舱内上光</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>128</span>
-        </div>
-        <div class="item">
-          <span class="name">轮毂及缝隙精洗</span>
-          <span class="desc">拆洗轮毂 · 门缝 · 油箱盖 · 车标缝隙</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>88</span>
-        </div>
-        <div class="item">
-          <span class="name">玻璃去油膜</span>
-          <span class="desc">前挡与侧窗油膜去除，雨夜视线更干净</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>68</span>
-        </div>
-      </div>
+        <div class="group-title"><h2>保养项目</h2><span>漆面 · 玻璃 · 膜类</span></div>
 
-      <div class="group">
-        <div class="group-title"><h2>漆面养护</h2><span>含洗车，需预约</span></div>
         <div class="item">
-          <span class="name">手工打蜡</span>
-          <span class="desc">含洗车 · 漆面去污 · 手工上蜡</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>168</span>
+          <div class="item-main">
+            <span class="name">抛光</span>
+            <span class="desc">去除轻微划痕 · 提高车身亮度</span>
+          </div>
+          <div class="tiers">
+            <span><i>轿车</i>¥1200</span>
+            <span><i>SUV</i>¥1500</span>
+            <span><i>商务 / 皮卡</i>¥1800</span>
+          </div>
         </div>
-        <div class="item">
-          <span class="name">漆面镀晶</span>
-          <span class="tag">推荐</span>
-          <span class="desc">含洗车打蜡 · 漆面镀晶 · 半年养护</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>598</span>
-        </div>
-        <div class="item">
-          <span class="name">玻璃镀膜</span>
-          <span class="desc">前挡驱水镀膜，雨天不挂水</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>98</span>
-        </div>
-      </div>
 
-      <div class="group">
-        <div class="group-title"><h2>会员卡</h2><span>限本车使用，可转赠</span></div>
         <div class="item">
-          <span class="name">洗车月卡</span>
-          <span class="desc">4 次标准洗车 · 30 天内有效</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>128</span>
+          <div class="item-main">
+            <span class="name">固体蜡打蜡</span>
+            <span class="desc">外观清洁 + 打蜡</span>
+          </div>
+          <div class="tiers">
+            <span><i>轿车</i>¥150–300</span>
+            <span><i>SUV</i>¥180–360</span>
+            <span><i>商务 / 皮卡</i>¥210–420</span>
+          </div>
         </div>
+
         <div class="item">
-          <span class="name">洗车季卡</span>
-          <span class="desc">12 次标准洗车 · 90 天内有效</span>
-          <span class="dots"></span>
-          <span class="price"><i>¥</i>328</span>
+          <div class="item-main">
+            <span class="name">液体蜡</span>
+            <span class="desc">针对白色车铁粉全车去污 + 震抛机施工</span>
+          </div>
+          <div class="tiers">
+            <span><i>轿车</i>¥360</span>
+            <span><i>SUV</i>¥420</span>
+            <span><i>商务 / 皮卡</i>¥480</span>
+          </div>
+        </div>
+
+        <div class="item">
+          <div class="item-main">
+            <span class="name">全车玻璃镀膜</span>
+            <span class="desc">除甲醛 · 除异味 · 杀菌消毒</span>
+          </div>
+          <div class="price"><i>¥</i>280</div>
+        </div>
+
+        <div class="item">
+          <div class="item-main"><span class="name">360° 雾化消毒</span></div>
+          <div class="price"><i>¥</i>120</div>
+        </div>
+
+        <div class="item">
+          <div class="item-main"><span class="name">汽车空调蒸发箱清洗</span></div>
+          <div class="price"><i>¥</i>300</div>
+        </div>
+
+        <div class="item">
+          <div class="item-main"><span class="name">车身改色</span></div>
+          <div class="price"><i>¥</i>4888<span class="from">起</span></div>
+        </div>
+
+        <div class="item">
+          <div class="item-main"><span class="name">隐形车衣</span></div>
+          <div class="price"><i>¥</i>7888<span class="from">起</span></div>
+        </div>
+
+        <div class="item">
+          <div class="item-main"><span class="name">太阳膜</span></div>
+          <div class="price"><i>¥</i>1288<span class="from">起</span></div>
+        </div>
+
+        <div class="item">
+          <div class="item-main">
+            <span class="name">会员卡办理</span>
+            <span class="desc">充值办卡 · 具体权益到店咨询</span>
+          </div>
+          <div class="price quote">到店咨询</div>
         </div>
       </div>
 
       <div class="notice">
-        <b>说明：</b>以上为门店参考价，车型、脏污程度不同可能加收，现场会先报价再动工。
-        深度清洁与漆面养护建议提前一天电话预约：<b>136 2133 2999</b>。
+        <b>说明：</b>以上为门店参考价，车型、脏污程度不同可能加收，施工前会先报价再动工。
+        内饰、漆面与膜类项目建议提前一天电话预约：<b>187 1005 8671</b>。
       </div>
 
       <footer>
@@ -462,7 +509,7 @@
         </div>
         <div class="foot-meta">
           <span>北京市顺义区乾安路 13 号 鲁能美丽汇购物中心</span>
-          <a href="tel:13621332999">136 2133 2999</a>
+          <a href="tel:18710058671">187 1005 8671</a>
           <span>09:00 — 19:30</span>
         </div>
         <div class="copy">© 2026 无野洗车行 WUYE CAR WASH</div>
